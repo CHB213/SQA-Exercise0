@@ -29,6 +29,9 @@ public class SortedCollection {
 	 */
 	public int remove() throws NoSuchElementException {
 		// TODO: Implement
+		if (arr.isEmpty()) {
+			throw new NoSuchElementException();
+		}
 		int val = arr.remove(0);
 		return val;
 	}
@@ -55,13 +58,15 @@ public class SortedCollection {
 		
 		// TODO: add numbers in commandline arguments to collection using the add(int) method.
 		// If any commandline argument is not a number, call showUsage() and return.
-		System.out.print("sorted: ");
 		for (int i = 0; i < args.length; i++) {
-			collection.add(Integer.parseInt(args[i]));
-			System.out.print(args[i] + " ");
+			try {
+				collection.add(Integer.parseInt(args[i]));
+			} catch(NumberFormatException e) {
+				showUsage();
+				return;
+			}
 		}
-		System.out.println();
-		
+
 		System.out.print("sorted: ");
 		for (int i = 0; i < args.length; i++) {
 			int num = collection.remove();
