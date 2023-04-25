@@ -15,6 +15,6 @@ Rust is a systems programming language that is designed for performance, safety,
 
 In Rust, variables must be declared before they can be used. This means specifying both the name of the variable and its data type. For example, to declare an unsigned 16-bit integer variable in Rust, you would write:
 
-'''Rust
+```Rust
 let my_unsigned_int: u16 = 42;
-'''
+```
